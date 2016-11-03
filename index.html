@@ -1,0 +1,546 @@
+<!DOCTYPE html>
+<!--[if IE 8]><html class="no-js lt-ie9" lang="en" > <![endif]-->
+<!--[if gt IE 8]><!--> <html class="no-js" lang="en" > <!--<![endif]-->
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="description" content="Reference guide for Citrix Director SDK">
+  
+  
+  <title>Citrix Director SDK</title>
+  
+
+  <link rel="shortcut icon" href="
+https://www.citrix.com/etc/designs/citrix/icon-favicon.png">
+
+  
+  <link href='https://fonts.googleapis.com/css?family=Lato:400,700|Roboto+Slab:400,700|Inconsolata:400,700' rel='stylesheet' type='text/css' />
+  <link rel="stylesheet" href="./css/theme.css" type="text/css" />
+  <link rel="stylesheet" href="./css/theme_extra.css" type="text/css" />
+  <link rel="stylesheet" href="./css/base.css">
+  <link rel="stylesheet" href="./css/highlight.css">
+  <link rel="stylesheet" href="./css/override.css" type="text/css" />
+
+  
+  <script>
+    // Current page data
+    var mkdocs_page_name = "None";
+    var mkdocs_page_input_path = "index.md";
+    var mkdocs_page_url = "/";
+  </script>
+  
+  <script src="./js/jquery-1.10.2.min.js"></script>
+  <script src="./js/bootstrap-3.0.3.min.js"></script>
+  <script src="./js/modernizr-2.8.3.min.js"></script>
+  <script type="text/javascript" src="./js/highlight.pack.js"></script>
+  <script src="./js/theme.js"></script>
+  <script src="./js/nav.js"></script>
+  <script src="./js/base.js"></script> 
+
+  
+</head>
+
+<body class="wy-body-for-nav" role="document" data-spy="scroll" data-target=".bs-sidebar">
+
+	<div data-toggle="wy-nav-shift" class="header-top">
+		<div class="header-top-left">
+			<a href="http://www.citrix.com" class="logo-position"><img height="60" src="https://thumbnail-ec2.sharefile.com/thumbnail.aspx?encparams=ypL2J0l-In6gqXJ7yeyKP8A1rqwKMH-C8-nfkJcHJNIN7Y0yZiJsYOcUe-uc0YeZzWLQSFSd1FnuMHPa30XSSINHuGOA8nvvnBT5WmjGlKvd5mxJ4IfT7iTVyHELwhWQiNCznPCiIFyhkA78uKX77PlU2iyhM4YdRM1NKabBe-4wXuiFJsbtAxyJ2UukO_E2ZSf1W3l75Dw8G0zflVkT-EFqyx1zSGId0qzLjm6nzJ8dA9zo-1AJzUisdzmGMzHOq_LMsOWyaalvmcWvCkl-q10GBSbfekfTIFW9LpZNYjkLNSnK8rcwNjWVr_jYayrGjIj2e5dDIMiDj3NRvW51AvHRjxYH9xRRRtY$" target="_blank" class="logo-citrix"><span style="color:#fff;font-size: 20px;position: relative;top:4px;left: 5px">SDK Reference</span></a>
+		</div>
+		<div class="header-top-right">
+			<ul>
+			<!--	<li class="list-inline home"><a href=".">HOME</a></li>
+				<li class="list-inline support"><a href="http://support.citrix.com">SUPPORT</a></li>-->
+		    <li class="list-inline support">			  
+			<form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+			<div class="input-group add-on">
+			<input type="text" name="q" placeholder="Search docs" /><span class="input-group-addon"><a onClick="document.forms['rtd-search-form'].submit();"><i class="fa fa-search"></i></a></span>
+			</div>
+			</form>
+			</li>
+				<!--<li class="list-inline"><a href="http://citrix.com/download">DOWNLOADS</a></li>-->
+			</ul>
+			
+
+		</div>
+	</div>
+    <div class="wy-grid-for-nav">
+
+    
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+      <div class="wy-side-nav-search">
+        <div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="./search.html" method="get">
+	<i class="fa fa-search"></i>
+    <input type="text" name="q" placeholder="Search docs" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" role="navigation" aria-label="main navigation">
+            <div class="bs-sidebar hidden-print affix well" role="complementary">
+    <ul class="nav bs-sidenav">
+    
+        <li class="main active"><a href="#introduction">Introduction</a></li>
+        
+    
+        <li class="main "><a href="#data-available-using-the-api">Data Available using the API</a></li>
+        
+    
+        <li class="main "><a href="#how-to-access-the-monitor-service-data">How to Access the Monitor Service Data</a></li>
+        
+            <li><a href="#data-access-privilege">Data Access Privilege</a></li>
+        
+            <li><a href="#data-access-security">Data Access Security</a></li>
+        
+            <li><a href="#data-access-protocol">Data Access Protocol</a></li>
+        
+            <li><a href="#examples">Examples</a></li>
+        
+    
+        <li class="main "><a href="#appendix">Appendix:</a></li>
+        
+            <li><a href="#urls-for-available-data-sets">URLs for Available Data Sets</a></li>
+        
+    
+    </ul>
+</div>       
+      </div>
+      &nbsp;
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+
+      
+      <nav class="wy-nav-top" role="navigation" aria-label="top navigation">
+        <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+        <a href=".">Citrix Director SDK</a>
+      </nav>
+
+      
+      <div class="wy-nav-content">
+        <div class="rst-content">
+          <div role="main" >
+            <div class="section">
+             
+                <h1 id="introduction"><a class="toclink" href="#introduction">Introduction</a></h1>
+<p>The Monitor Service API is built on top of SQL Server databases using
+Windows Communication Foundation (WCF) Data Services that are populated
+during processing and consolidation.</p>
+<p>The Monitor Service API uses the Open Data (OData) protocol, which is a
+Web protocol for querying and updating data, built upon Web technologies
+such as HTTP.</p>
+<p>The Monitor Service API is a REST-based API that can be accessed using
+an OData consumer. OData consumers are applications that consume data
+exposed using the OData protocol.</p>
+<p>You can use the API to:</p>
+<ul>
+<li>
+<p>Analyze historical trends for future planning</p>
+</li>
+<li>
+<p>Perform detailed troubleshooting of connection and machine failures</p>
+</li>
+<li>
+<p>Extract information for feeding into other tools and processes; for
+    example, using Microsoft Excel's PowerPivot tables to display the
+    data in different ways</p>
+</li>
+<li>
+<p>Build a custom user interface on top of the data that the API
+    provides</p>
+</li>
+</ul>
+<h1 id="data-available-using-the-api"><a class="toclink" href="#data-available-using-the-api">Data Available using the API</a></h1>
+<p>The following types of data are available through the Monitor Service
+API:</p>
+<ul>
+<li>
+<p><span id="par_richtext_0" class="anchor"></span>Data relating to
+    connection failures</p>
+</li>
+<li>
+<p>Machines in a failure state</p>
+</li>
+<li>
+<p>Session usage</p>
+</li>
+<li>
+<p>Logon duration</p>
+</li>
+<li>
+<p>Load balancing data</p>
+</li>
+<li>
+<p>Hotfixes applied to a machine</p>
+</li>
+<li>
+<p>Hosted application usage</p>
+</li>
+</ul>
+<p>For the details of the Monitor Service schema, please refer to: <a href="http://docs.citrix.com/en-us/xenapp-and-xendesktop/7-5/cds-ms-odata-wrapper/cds-ms-odata-data.html">Monitor
+Service
+Schema</a>.</p>
+<p>To determine the values returned by the Monitor Service OData API, see:
+<a href="http://support.citrix.com/help/monitorserviceapi/7.6/html/d787ce1d-02c0-6165-fc99-c46592a5d112.htm">Citrix Monitor Data
+Model</a></p>
+<h1 id="how-to-access-the-monitor-service-data"><a class="toclink" href="#how-to-access-the-monitor-service-data">How to Access the Monitor Service Data</a></h1>
+<h2 id="data-access-privilege"><a class="toclink" href="#data-access-privilege">Data Access Privilege</a></h2>
+<p>To use the Monitor Service OData API, you must be a XenApp or XenDesktop
+administrator. To call the API, you require read-only privileges;
+however, the data returned is determined by XenApp or XenDesktop
+administrator roles and permissions.</p>
+<p>For example, Delivery Group Administrators can call the Monitor Service
+API but the data they can obtain is controlled by Delivery Group access
+set up using Citrix Studio.</p>
+<p>For more information about XenApp or XenDesktop administrator roles and
+permissions, see <a href="http://docs.citrix.com/en-us/xenapp-and-xendesktop/7-6/xad-security-article/xad-delegated-admin.html">Delegated
+Administration</a>.</p>
+<h2 id="data-access-security"><a class="toclink" href="#data-access-security">Data Access Security</a></h2>
+<p>If you choose to use SSL, you must configure SSL on all Delivery
+Controllers in the site; you cannot use a mixture of SSL and non-SSL.</p>
+<p>To secure Monitor Service endpoints using SSL, you must perform the
+following configuration. Some steps need to be done only once per site,
+others must be run from every machine hosting the Monitor Service in the
+site. The steps are described below.</p>
+<h3 id="part-1-certificate-registration-with-the-system"><a class="toclink" href="#part-1-certificate-registration-with-the-system"><span id="par_richtext_1" class="anchor"><span id="_Toc464843969" class="anchor"></span></span>Part 1: Certificate registration with the system</a></h3>
+<ol>
+<li>
+<p><span id="par_richtext_2" class="anchor"></span>Create a certificate
+    using a trusted certificate manager. The certificate must be
+    associated with the port on the machine that you wish to use for
+    OData SSL.</p>
+</li>
+<li>
+<p>Configure the Monitor Service to use this port for
+    SSL communication. The steps depend on your environment and how this
+    works with certificates. The following example shows how to
+    configure port 449:</p>
+</li>
+<li>
+<p><span id="par_richtext_3" class="anchor"></span>Associate the
+    certificate with a port:</p>
+</li>
+</ol>
+<blockquote>
+<p>netsh http add sslcert ipport=0.0.0.0:449
+certhash=97bb629e50d556c80528f4991721ad4f28fb74e9</p>
+<p>appid='{00000000-0000-0000-0000-000000000000}'</p>
+</blockquote>
+<p><strong>Tip</strong>: <em>In a PowerShell command window, ensure you put single quotes
+around the GUID in the appID, as shown above, or the command will not
+work. Note that a line break has been added to this example for
+readability only.</em></p>
+<h3 id="part-2-modify-the-monitor-service-configuration-settings"><a class="toclink" href="#part-2-modify-the-monitor-service-configuration-settings">Part 2: Modify the Monitor Service configuration settings</a></h3>
+<p>1.From any Delivery Controller in the site, run the following PowerShell commands once. This removes the Monitor Service registration with the Configuration Service.</p>
+<div class="codehilite"><pre><span class="x">asnp citrix.\*</span>
+
+<span class="x"> \</span><span class="p">$</span><span class="nv">serviceGroup</span><span class="x"> = get-configregisteredserviceinstance -servicetype</span>
+<span class="x"> Monitor | Select -First 1 ServiceGroupUid</span>
+
+<span class="x"> remove-configserviceGroup -ServiceGroupUid</span>
+<span class="x"> \</span><span class="p">$</span><span class="nv">serviceGroup</span><span class="p">.</span><span class="nv">ServiceGroupUid</span><span class="x"></span>
+</pre></div>
+
+
+<p>2.Do the following on all Controllers in the site:</p>
+<ul>
+<li>Using a cmd prompt, locate the installed Citrix Monitor directory (typically in C:\Program Files\Citrix\Monitor\Service). Within that directory run:</li>
+</ul>
+<div class="codehilite"><pre>Citrix.Monitor.Exe -CONFIGUREFIREWALL -ODataPort 449 -RequireODataSsl
+</pre></div>
+
+
+<ul>
+<li>Run the following PowerShell commands:</li>
+</ul>
+<div class="codehilite"><pre>asnp citrix.\* (if not already run within this window)
+
+get-MonitorServiceInstance | register-ConfigServiceInstance
+
+Get-ConfigRegisteredServiceInstance -ServiceType Config |
+Reset-MonitorServiceGroupMembership
+</pre></div>
+
+
+<h2 id="data-access-protocol"><a class="toclink" href="#data-access-protocol">Data Access Protocol</a></h2>
+<p>The Monitor Service API is a REST-based API that can be accessed using
+an OData consumer. OData consumers are applications that consume data
+exposed using the OData protocol. OData consumers vary in sophistication
+from simple web browsers to custom applications that can take advantage
+of all the features of the OData Protocol.</p>
+<p>Every part of the Monitor Service data model is accessible and can be
+filtered on the URL. OData provides a query language in the URL format
+you can use to retrieve entries from a service.</p>
+<p>The query is processed on the server side and can be filtered further
+using the OData protocol on the client side.</p>
+<p><span id="par_richtext_7" class="anchor"></span>The data modeled falls
+into three categories: aggregate data (the summary tables), current
+state of objects (machines, sessions, etc.), and log data, which is
+really historical events (connections, for example).</p>
+<p><span id="par_richtext_8" class="anchor"></span><strong>Note</strong>: Enums are not
+supported in the OData protocol; integers are used in their place. To
+determine the values returned by the Monitor Service OData API,
+see<strong> </strong><a href="http://support.citrix.com/help/monitorserviceapi/7.6/">Monitor Service Data
+Model</a> .</p>
+<h3 id="what-is-odata-protocol"><a class="toclink" href="#what-is-odata-protocol">What is OData Protocol?</a></h3>
+<p><a href="http://www.odata.org/">OData</a> (Open Data Protocol) is an <a href="https://www.oasis-open.org/committees/tc_home.php?wg_abbrev=odata">OASIS
+standard</a> that
+defines a set of best practices for building and consuming RESTful APIs.
+OData helps you focus on your business logic while building RESTful APIs
+without having to worry about the various approaches to define request
+and response headers, status codes, HTTP methods, URL conventions, media
+types, payload formats, query options, etc.</p>
+<p>OData also provides guidance for tracking changes, defining
+functions/actions for reusable procedures, and sending
+asynchronous/batch requests.</p>
+<p>OData RESTful APIs are easy to consume. The OData metadata, a
+machine-readable description of the data model of the APIs, enables the
+creation of powerful generic client proxies and tools.</p>
+<p>OData Consumers: <a href="http://www.odata.org/ecosystem/#consumers">http://www.odata.org/ecosystem/#consumers</a></p>
+<p>Client Libraries: <a href="http://www.odata.org/libraries/">http://www.odata.org/libraries/</a></p>
+<p>Basic Tutorial: <a href="http://www.odata.org/getting-started/basic-tutorial/">http://www.odata.org/getting-started/basic-tutorial/</a></p>
+<h3 id="_1"><a class="toclink" href="#_1"></a></h3>
+<h3 id="what-is-wcf"><a class="toclink" href="#what-is-wcf">What is WCF?</a></h3>
+<p>As OData Provider, Citrix Monitor Service API is implemented by WCF.</p>
+<p>Windows Communication Foundation (WCF) is Microsoft’s unified
+programming model for building service-oriented applications. </p>
+<p>For more detail about WCF, see <a href="https://msdn.microsoft.com/library/dd456779.aspx">Windows Communication
+Foundation</a></p>
+<h2 id="examples"><a class="toclink" href="#examples">Examples</a></h2>
+<p>The following examples show how to export Monitor Service data using the
+OData API. This topic also provides a list of URLs for available data
+sets.</p>
+<h3 id="example-1-raw-xml"><a class="toclink" href="#example-1-raw-xml">Example 1 - Raw XML</a></h3>
+<ol>
+<li>
+<p>Place the URL for each data set into a web browser that is running
+    with the appropriate administrative permissions for the XenApp or
+    XenDesktop Site. Citrix recommends using the Chrome browser with the
+    Advanced Rest Client add-in.</p>
+</li>
+<li>
+<p>View the source.</p>
+</li>
+</ol>
+<h3 id="example-2-powerpivot-with-excel"><a class="toclink" href="#example-2-powerpivot-with-excel">Example 2 - PowerPivot with Excel</a></h3>
+<ol>
+<li>
+<p>Install Microsoft Excel.</p>
+</li>
+<li>
+<p>Follow the instructions here to install PowerPivot (depending on
+    whether or not you are using 2010 or
+    2013): <a href="https://support.office.com/en-us/article/Start-Power-Pivot-in-Microsoft-Excel-2013-add-in-a891a66d-36e3-43fc-81e8-fc4798f39ea8">https://support.office.com/en-us/article/Start-Power-Pivot-in-Microsoft-Excel-2013-add-in-a891a66d-36e3-43fc-81e8-fc4798f39ea8.</a></p>
+</li>
+<li>
+<p>Open Excel (running with the appropriate administrative permissions
+    for the XenApp or XenDesktop Site).</p>
+</li>
+</ol>
+<h4 id="using-excel-2010"><a class="toclink" href="#using-excel-2010">Using Excel 2010</a></h4>
+<ol>
+<li>
+<p>Click the PowerPivot tab.</p>
+</li>
+<li>
+<p>Click PowerPivot Window.</p>
+</li>
+<li>
+<p>Click <strong>From Data Feeds</strong> in the ribbon.</p>
+</li>
+<li>
+<p>Choose a Friendly Connection Name (for example: XenDesktop
+    Monitoring Data) and enter the data feed url:
+    http://{dc-host}/Citrix/Monitor/OData/v1/Data (or https: if you are
+    using SSL).</p>
+</li>
+<li>
+<p>Click <strong>Next</strong>.</p>
+</li>
+<li>
+<p>Select the tables you want to import into Excel and
+    click <strong>Finish</strong>. The data is retrieved.</p>
+</li>
+</ol>
+<h4 id="using-excel-2013"><a class="toclink" href="#using-excel-2013">Using Excel 2013</a></h4>
+<ol>
+<li>
+<p>Click the Data tab.</p>
+</li>
+<li>
+<p>Choose From Other Sources &gt; From OData Data Feed</p>
+</li>
+<li>
+<p>Enter the data feed url:
+    http://{dc-host}/Citrix/Monitor/OData/v1/Data (or https: if you are
+    using SSL) and click <strong>Next</strong>.</p>
+</li>
+<li>
+<p>Select the tables you want to import into Excel and click <strong>Next</strong>.</p>
+</li>
+<li>
+<p>Accept name defaults or customize names and click <strong>Finish</strong>.</p>
+</li>
+<li>
+<p>Choose <strong>Connection Only</strong> or <strong>Pivot Report</strong>. The data
+    is retrieved.</p>
+</li>
+</ol>
+<p>You can now use PowerPivot to view and analyze the data with PivotTables
+and PivotCharts. For more information, see the Learning
+Center: <a href="http://www.microsoft.com/en-us/bi/LearningCenter.aspx">http://www.microsoft.com/en-us/bi/LearningCenter.aspx</a></p>
+<h3 id="example-3-linqpad"><a class="toclink" href="#example-3-linqpad"><span id="par_richtext_9" class="anchor"><span id="_Toc464843977" class="anchor"></span></span>Example 3 - LinqPad</a></h3>
+<ol>
+<li>
+<p><span id="par_richtext_10" class="anchor"></span>Download and
+    install the latest version of LinqPad
+    from <a href="http://www.linqpad.net/">http://www.linqpad.net</a>.</p>
+</li>
+<li>
+<p>Run LinqPad with the appropriate administrative permissions for the
+    XenApp or XenDesktop Site.</p>
+</li>
+</ol>
+<blockquote>
+<p>Tip: the easiest way is to download, install and run on the Delivery
+Controller.</p>
+</blockquote>
+<ol>
+<li>
+<p>Click the Add connection link.</p>
+</li>
+<li>
+<p>Choose WCF Data Services 5.1 (OData 3) and click <strong>Next</strong>.</p>
+</li>
+<li>
+<p>Enter the data feed URL: <span id="OLE_LINK2" class="anchor"><span
+    id="OLE_LINK3"
+    class="anchor"></span></span>http://{dc-host}/Citrix/Monitor/OData/v1/Data
+    (or https: if you are using SSL). If necessary, enter the username
+    and password to access the Delivery Controller. Click <strong>OK</strong>.</p>
+</li>
+<li>
+<p>You can now run LINQ queries against the data feed and export the
+    data as needed. For example, right-click Catalogs and
+    choose <strong>Catalogs.Take(100)</strong>. This returns the first 100 Catalogs
+    in the database. Choose Export&gt;Export to Excel with formatting.</p>
+</li>
+</ol>
+<h3 id="example-4-client-library"><a class="toclink" href="#example-4-client-library">Example 4 – Client Library</a></h3>
+<h4 id="_2"><a class="toclink" href="#_2"></a></h4>
+<p>Currently Citrix Monitor Service supports OData protocol V1-V3. So when
+implement the OData consumers with various programming platforms, please
+select correct client libraries.</p>
+<h4 id="example-41-c35net"><a class="toclink" href="#example-41-c35net">Example 4.1 – C#/.NET</a></h4>
+<h5 id="calling-an-odata-service-from-a-net-client-c35"><a class="toclink" href="#calling-an-odata-service-from-a-net-client-c35">Calling an OData Service From a .NET Client (C#)</a></h5>
+<p><a href="https://www.asp.net/web-api/overview/odata-support-in-aspnet-web-api/odata-v3/calling-an-odata-service-from-a-net-client">https://www.asp.net/web-api/overview/odata-support-in-aspnet-web-api/odata-v3/calling-an-odata-service-from-a-net-client</a></p>
+<p>Code Fragment:
+<br></p>
+<div class="codehilite"><pre>    <span class="cm">/* GET http://{dc-host}/Citrix/Monitor/Odata/v3/Data/Catalogs */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="n">string</span> <span class="nf">ListAllCatalgs</span><span class="o">(</span><span class="n">MonitorService</span><span class="o">.</span><span class="na">DatabaseContext</span> <span class="n">context</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="n">StringBuilder</span> <span class="n">sb</span> <span class="o">=</span> <span class="k">new</span> <span class="n">StringBuilder</span><span class="o">();</span>
+        <span class="n">Foreach</span> <span class="o">(</span><span class="n">var</span> <span class="n">c</span> <span class="n">in</span> <span class="n">context</span><span class="o">.</span><span class="na">Catalogs</span><span class="o">)</span>
+        <span class="o">{</span>
+            <span class="n">sb</span><span class="o">.</span><span class="na">Append</span><span class="o">(</span><span class="n">DisplayCatalog</span><span class="o">(</span><span class="n">c</span><span class="o">));</span>
+        <span class="o">}</span>
+        <span class="k">return</span> <span class="n">sb</span><span class="o">.</span><span class="na">ToString</span><span class="o">();</span>
+    <span class="o">}</span>
+</pre></div>
+
+
+<p><br></p>
+<div class="codehilite"><pre>    <span class="cm">/* GET http://Url/Machines()?$select=Name, IPAddress */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">ListMachineNames</span><span class="o">(</span><span class="n">MonitorService</span><span class="o">.</span><span class="na">DatabaseContext</span> <span class="n">context</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="n">var</span> <span class="n">machines</span> <span class="o">=</span> <span class="n">from</span> <span class="n">m</span> <span class="n">in</span> <span class="n">context</span><span class="o">.</span><span class="na">Machines</span> <span class="n">select</span> <span class="k">new</span> <span class="o">{</span> <span class="n">Name</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="na">Name</span><span class="o">,</span> <span class="n">IP</span> <span class="o">=</span> <span class="n">m</span><span class="o">.</span><span class="na">IPAddress</span> <span class="o">};</span>
+        <span class="n">foreach</span> <span class="o">(</span><span class="n">var</span> <span class="n">m</span> <span class="n">in</span> <span class="n">machines</span><span class="o">)</span>
+        <span class="o">{</span>
+            <span class="k">if</span> <span class="o">(</span><span class="n">m</span><span class="o">.</span><span class="na">Name</span> <span class="o">!=</span> <span class="kc">null</span> <span class="o">&amp;&amp;</span> <span class="n">m</span><span class="o">.</span><span class="na">IP</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
+            <span class="o">{</span>
+                <span class="n">Console</span><span class="o">.</span><span class="na">WriteLine</span><span class="o">(</span><span class="s">&quot;{0} : {1}&quot;</span><span class="o">,</span> <span class="n">m</span><span class="o">.</span><span class="na">Name</span><span class="o">,</span> <span class="n">m</span><span class="o">.</span><span class="na">IP</span><span class="o">);</span>
+            <span class="o">}</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</pre></div>
+
+
+<p><br></p>
+<div class="codehilite"><pre>    <span class="cm">/* use the LINQ Skip and Take methods to skips the first 40 results and takes the next 10 */</span>
+    <span class="cm">/* GET http://{dc-host}/Citrix/Monitor/Odata/v3/Machines()?$orderby=Id desc&amp;$skip=40&amp;$top=10 */</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">ListMachinesPaged</span><span class="o">(</span><span class="n">MonitorService</span><span class="o">.</span><span class="na">DatabaseContext</span> <span class="n">context</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="n">var</span> <span class="n">machines</span> <span class="o">=</span>
+            <span class="o">(</span><span class="n">from</span> <span class="n">m</span> <span class="n">in</span> <span class="n">context</span><span class="o">.</span><span class="na">Machines</span>
+             <span class="n">orderby</span> <span class="n">m</span><span class="o">.</span><span class="na">Id</span> <span class="n">descending</span>
+             <span class="n">select</span> <span class="n">m</span><span class="o">).</span><span class="na">Skip</span><span class="o">(</span><span class="mi">40</span><span class="o">).</span><span class="na">Take</span><span class="o">(</span><span class="mi">10</span><span class="o">);</span>
+
+        <span class="n">foreach</span> <span class="o">(</span><span class="n">var</span> <span class="n">m</span> <span class="n">in</span> <span class="n">machines</span><span class="o">)</span>
+        <span class="o">{</span>
+            <span class="n">Console</span><span class="o">.</span><span class="na">WriteLine</span><span class="o">(</span><span class="s">&quot;{0}, {1}&quot;</span><span class="o">,</span> <span class="n">m</span><span class="o">.</span><span class="na">Name</span><span class="o">,</span> <span class="n">m</span><span class="o">.</span><span class="na">IPAddress</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</pre></div>
+
+
+<p><br> </p>
+<div class="codehilite"><pre>    <span class="cm">/* GET http://Url/Catalogs()?$filter=Name eq &#39;$Name&#39;*/</span>
+    <span class="kd">private</span> <span class="kd">static</span> <span class="kt">void</span> <span class="nf">ListCatalogByName</span><span class="o">(</span><span class="n">MonitorService</span><span class="o">.</span><span class="na">DatabaseContext</span> <span class="n">context</span><span class="o">,</span> <span class="n">string</span> <span class="n">name</span><span class="o">)</span>
+    <span class="o">{</span>
+        <span class="n">var</span> <span class="n">catalog</span> <span class="o">=</span> <span class="n">context</span><span class="o">.</span><span class="na">Catalogs</span><span class="o">.</span><span class="na">Where</span><span class="o">(</span><span class="n">c</span> <span class="o">=&gt;</span> <span class="n">c</span><span class="o">.</span><span class="na">Name</span> <span class="o">==</span> <span class="n">name</span><span class="o">).</span><span class="na">SingleOrDefault</span><span class="o">();</span>
+        <span class="k">if</span> <span class="o">(</span><span class="n">catalog</span> <span class="o">!=</span> <span class="kc">null</span><span class="o">)</span>
+        <span class="o">{</span>
+            <span class="n">DisplayCatalog</span><span class="o">(</span><span class="n">catalog</span><span class="o">);</span>
+        <span class="o">}</span>
+    <span class="o">}</span>
+</pre></div>
+
+
+<p><br>  </p>
+<h4 id="example-42-javascript"><a class="toclink" href="#example-42-javascript">Example 4.2 – JavaScript</a></h4>
+<p>TODO</p>
+<h4 id="example-43-java"><a class="toclink" href="#example-43-java">Example 4.3 – Java</a></h4>
+<p>TODO</p>
+<h4 id="example-44-object-c"><a class="toclink" href="#example-44-object-c">Example 4.4 – Object-C</a></h4>
+<p><span id="OLE_LINK1" class="anchor"></span>TODO</p>
+<h1 id="appendix"><a class="toclink" href="#appendix">Appendix:</a></h1>
+<h3 id="urls-for-available-data-sets"><a class="toclink" href="#urls-for-available-data-sets">URLs for Available Data Sets</a></h3>
+<table align=left border=0 cellpadding=0 cellspacing=0 class=MsoNormalTable style=width:509.3pt;border-collapse:collapse;margin-left:6.75pt;margin-right:6.75pt summary=""width=679><thead><tr><td style="width:350.6pt;border:solid #fff 1pt;background:#D7D7D7;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=467><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>URL<td style="width:158.7pt;border:solid #fff 1pt;border-left:none;background:#D7D7D7;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=212><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>Description<tbody><tr><td style="width:350.6pt;border:solid #fff 1pt;border-top:none;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=467><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>http://{dc-host}/Citrix/Monitor/OData/v1/Data/Catalogs<td style="width:158.7pt;border-top:none;border-left:none;border-bottom:solid #fff 1pt;border-right:solid #fff 1pt;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=212><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>Catalog images in the site<tr><td style="width:350.6pt;border:solid #fff 1pt;border-top:none;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=467><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>http://{dc-host}/Citrix/Monitor/OData/v1/Data/ConnectionFailureCategories<td style="width:158.7pt;border-top:none;border-left:none;border-bottom:solid #fff 1pt;border-right:solid #fff 1pt;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=212><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>Grouping for connection failure types<tr><td style="width:350.6pt;border:solid #fff 1pt;border-top:none;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=467><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>http://{dc-host}/Citrix/Monitor/OData/v1/Data/ConnectionFailureLogs<td style="width:158.7pt;border-top:none;border-left:none;border-bottom:solid #fff 1pt;border-right:solid #fff 1pt;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=212><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>Log of each connection failure in the site<tr><td style="width:350.6pt;border:solid #fff 1pt;border-top:none;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=467><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>http://{dc-host}/Citrix/Monitor/OData/v1/Data/Connections<td style="width:158.7pt;border-top:none;border-left:none;border-bottom:solid #fff 1pt;border-right:solid #fff 1pt;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=212><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>Represents an initial connection or reconnect for a session<tr><td style="width:350.6pt;border:solid #fff 1pt;border-top:none;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=467><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>http://{dc-host}/Citrix/Monitor/OData/v1/Data/DesktopGroups<td style="width:158.7pt;border-top:none;border-left:none;border-bottom:solid #fff 1pt;border-right:solid #fff 1pt;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=212><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>Delivery Groups in the site<tr><td style="width:350.6pt;border:solid #fff 1pt;border-top:none;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=467><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>http://{dc-host}/Citrix/Monitor/OData/v1/Data/FailureLogSummaries<td style="width:158.7pt;border-top:none;border-left:none;border-bottom:solid #fff 1pt;border-right:solid #fff 1pt;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=212><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>Failures (connection/machine) counts by time period and Delivery Group<tr><td style="width:350.6pt;border:solid #fff 1pt;border-top:none;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=467><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>http://{dc-host}/Citrix/Monitor/OData/v1/Data/Hypervisors<td style="width:158.7pt;border-top:none;border-left:none;border-bottom:solid #fff 1pt;border-right:solid #fff 1pt;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=212><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>Hosts (hypervisors) in the site<tr><td style="width:350.6pt;border:solid #fff 1pt;border-top:none;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=467><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>http://{dc-host}/Citrix/Monitor/OData/v1/Data/LoadIndexes<td style="width:158.7pt;border-top:none;border-left:none;border-bottom:solid #fff 1pt;border-right:solid #fff 1pt;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=212><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>Load Index data received from the Virtual Delivery Agent (VDA)<tr><td style="width:350.6pt;border:solid #fff 1pt;border-top:none;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=467><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>http://{dc-host}/Citrix/Monitor/OData/v1/Data/LoadIndexSummaries<td style="width:158.7pt;border-top:none;border-left:none;border-bottom:solid #fff 1pt;border-right:solid #fff 1pt;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=212><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>Load Index averages by time period and machine<tr><td style="width:350.6pt;border:solid #fff 1pt;border-top:none;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=467><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>http://{dc-host}/Citrix/Monitor/OData/v1/Data/MachineFailureLogs<td style="width:158.7pt;border-top:none;border-left:none;border-bottom:solid #fff 1pt;border-right:solid #fff 1pt;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=212><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>Log of each machine failure by start and end date in the site<tr><td style="width:350.6pt;border:solid #fff 1pt;border-top:none;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=467><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>http://{dc-host}/Citrix/Monitor/OData/v1/Data/Machines<td style="width:158.7pt;border-top:none;border-left:none;border-bottom:solid #fff 1pt;border-right:solid #fff 1pt;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=212><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>Machines in the site<tr><td style="width:350.6pt;border:solid #fff 1pt;border-top:none;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=467><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>http://{dc-host}/Citrix/Monitor/OData/v1/Data/SessionActivitySummaries<td style="width:158.7pt;border-top:none;border-left:none;border-bottom:solid #fff 1pt;border-right:solid #fff 1pt;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=212><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>Session counts and logon data by time period and delivery group<tr><td style="width:350.6pt;border:solid #fff 1pt;border-top:none;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=467><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>http://{dc-host}/Citrix/Monitor/OData/v1/Data/Sessions<td style="width:158.7pt;border-top:none;border-left:none;border-bottom:solid #fff 1pt;border-right:solid #fff 1pt;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=212><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>Represents a user connected to a desktop<tr><td style="width:350.6pt;border:solid #fff 1pt;border-top:none;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=467><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>http://{dc-host}/Citrix/Monitor/OData/v1/Data/TaskLogs<td style="width:158.7pt;border-top:none;border-left:none;border-bottom:solid #fff 1pt;border-right:solid #fff 1pt;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=212><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>Log of all tasks and their status that have been run as part of the internal Monitoring Service<tr><td style="width:350.6pt;border:solid #fff 1pt;border-top:none;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=467><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>http://{dc-host}/Citrix/Monitor/OData/v1/Data/Users<td style="width:158.7pt;border-top:none;border-left:none;border-bottom:solid #fff 1pt;border-right:solid #fff 1pt;background:#EEE;padding:4.5pt 4.5pt 4.5pt 4.5pt"valign=top width=212><p class=MsoNormal style=margin-top:0;margin-right:-3.75pt;margin-bottom:0;margin-left:0;margin-bottom:.0001pt;line-height:normal>Users that have launched a session in the site</table>
+              
+               
+            </div>
+          </div>
+
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+<!--<div class="rst-versions" role="note" style="cursor: pointer">
+    <span class="rst-current-version" data-toggle="rst-current-version">
+      
+          <a href="https://github.com/ajitchelat/AppDNA-SDK.git" class="icon icon-github" style="float: left; color: #fcfcfc"> GitHub</a>
+      
+      
+      
+    </span>
+	<div class="footer-right">
+		<ul class="social-links">
+			<li class="list-inline"><a href="https://twitter.com/citrix"><i class="fa fa-twitter"></i>@citrix</a></li>
+			<li class="list-inline"><a href="mailto:support@citrix.com"><i class="fa fa-envelope-o"></i>support@citrix.com</a></li>
+		</ul>
+		<ul class="inner-pages">
+			<li class="list-inline"><a href="http://citrix.com/about/legal">Privacy and Terms</li>
+		</ul>
+	</div>
+</div>-->
+
+</body>
+</html>
+
+<!--
+MkDocs version : 0.15.3
+Build Date UTC : 2016-10-28 02:00:28.237000
+-->
