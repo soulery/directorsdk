@@ -10,14 +10,24 @@ h3, h4, h5, h6 {
     font-weight: 600
 }
 
-  
-
 /*
  * Sphinx doesn't have support for section dividers like we do in
  * MkDocs, this styles the section titles in the nav
  *
  * https://github.com/mkdocs/mkdocs/issues/175
  */
+
+.expli{
+    display: inline-table !important;
+    padding-left: 5px !important;
+    padding-right: 0px !important;
+    padding-bottom: 0px !important;
+}
+.current{
+	display: inline-table !important;
+	padding-left:5px !important;
+}
+
 .wy-menu-vertical span {
     line-height: 18px;
     padding: 0.4045em 1.618em;
@@ -193,7 +203,7 @@ nav.stickynav {background-image: url('../img/grey_calm.png');background-repeat:n
 	transform: scale3d(1, 1, 1);
 	color: #37474f
 }
-.rst-content .section h1, .rst-content .section h2 {padding-top: 80px}
+
 img {padding: 20px 0}
 @media screen and (max-width:768px){
 .header-top-left {width: auto}
@@ -202,6 +212,4 @@ img {padding: 20px 0}
 .wy-nav-content-wrap {margin-left: 0;width: 100%}
 .wy-side-nav-search input[type="text"] {width: 100%}
 .header-top {position: absolute}
-.wy-nav-top {display:none}
-.header-top-right{padding-right:0 !important}
 }
